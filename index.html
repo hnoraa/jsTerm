@@ -41,11 +41,22 @@
     <script type="text/javascript">
         function onInput(event) {
             if (event.data === null) {
-                console.log("Enter has been pressed");
+                var area = document.getElementById("console").value.split("\n");
+                var expLine = area[area.length-1];    // get last line
+                var expression = expLine.split(" ");
+
+                switch(expLine) {
+                    case "clear":
+                    document.getElementById("console").value = ">";
+
+                    break;
+
+                }
             } else {
                 return null;
             }
         }
+
     </script>
 </head>
 
@@ -55,7 +66,7 @@
             JS Terminal Emulator
         </div>
         <div class="terminal">
-            <textarea id="console" name="console" cols="90" rows="30" oninput="onInput(event)"></textarea>
+            <textarea id="console" name="console" cols="90" rows="30" oninput="onInput(event)">> </textarea>
         </div>
         <div class="instructions">
             Instructions:
